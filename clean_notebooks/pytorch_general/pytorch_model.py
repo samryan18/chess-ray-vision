@@ -1,3 +1,5 @@
+from torch import nn, optim
+
 def train_model(model: nn.Module, 
                 log_dir: str,
                 train_loader,
