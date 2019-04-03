@@ -22,5 +22,5 @@ Upload the most up to date notebook from `clean_notebooks/` into [Google Colab](
 
 ### Initial Results
 
-<img src="./assets/chess_output.png" alt="Results image" width="250" />
+<img src="./assets/chess_output.png" alt="Results image" width="60%" />
 
