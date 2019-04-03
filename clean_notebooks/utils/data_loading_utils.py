@@ -3,7 +3,7 @@ import re
 from skimage.util.shape import view_as_blocks
 from skimage import transform as sktransform
 from skimage import io
-from random import shuffle
+import os
 
 def onehot_from_fen(fen, piece_symbols = 'prbnkqPRBNKQ'):
     eye = np.eye(13)
