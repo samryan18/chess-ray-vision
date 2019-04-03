@@ -9,6 +9,23 @@ import matplotlib.pyplot as plt
 # images taken from wikipedia: 
 # https://commons.wikimedia.org/wiki/Category:PNG_chess_pieces/Standard_transparent
 
+def valid_imshow_data(data):
+    data = np.asarray(data)
+    if data.ndim == 2:
+        return True
+    elif data.ndim == 3:
+        if 3 <= data.shape[2] <= 4:
+            return True
+        else:
+            print(f'The board you are tying to print has 3 dimensions but the '
+                  f'last dimension must have a length of 3 (RGB) '
+                  f'or 4 (RGBA), not "{data.shape[2]}".')
+            return False
+    else:
+        print('To visualize an image the data must be 2 dimensional or '
+              '3 dimensional, not "{}".'
+              ''.format(data.ndim))
+        return False
 
 class BadChessboard(ValueError):
     pass
@@ -50,13 +67,14 @@ def draw_board(n=8, sq_size=(20, 20)):
     def square(i, j):
         return i * sq_size[0], j * sq_size[1]
     opaque_grey_background = 192, 255
-    board = Image.new('LA', square(n, n), opaque_grey_background) 
+    board = Image.new('RGB', square(n, n), color=(0,50,75)) 
     draw_square = ImageDraw.Draw(board).rectangle
     whites = ((square(i, j), square(i + 1, j + 1))
               for i_start, j in zip(cycle((0, 1)), range(n))
               for i in range(i_start, n, 2))
     for white_square in whites:
         draw_square(white_square, fill='white')
+    valid_imshow_data(board)
     return board
     
 class DrawChessPosition(object):
@@ -125,9 +143,36 @@ class DrawChessPosition(object):
             board.paste(images[piece], pt, masks[piece])
         return board
 
-    def show(self, board, figsize=(6,6)):
+    def show(self, board, figsize=(4,4), board_title=''):
         plt.figure(figsize=figsize)
+        plt.grid(False)
+        plt.xticks([], [])
+        plt.yticks([], [])
+        plt.title(board_title)
+        print(valid_imshow_data(board))
         imshow(board)
         plt.show()
+        
+    def show_side_by_side(self, 
+                          board1, 
+                          board2, 
+                          figsize=(4,4), 
+                          board1_title='',
+                          board2_title=''):
+
+        f, axarr = plt.subplots(1,2, figsize=(2*figsize[0],figsize[1]))
+        
+        axarr[0].imshow(board1)
+        axarr[0].set_title(board1_title)
+        axarr[1].imshow(board2)
+        axarr[1].set_title(board2_title)
+
+        for ax in axarr:
+            ax.grid(False)
+            ax.set_xticks([], [])
+            ax.set_yticks([], [])
+            
+        plt.show()
+
 
         
