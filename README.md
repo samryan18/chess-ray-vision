@@ -20,3 +20,6 @@ Upload the most up to date notebook from `clean_notebooks/` into [Google Colab](
  "")
 
 
+### Initial Results
+![](./assets/chess_output.md | width=250)
+
