@@ -20,9 +20,18 @@ Upload the most up to date notebook from `clean_notebooks/` into [Google Colab](
  "")
 
 
-### Initial Results
+### Initial Results on Easier Dataset
 
 <img src="./assets/chess_output.png" alt="Results image" width="90%" />
+
+
+### Initial Preprocessing Results
+Preprocessing code adapted from [here](https://github.com/Elucidation/ChessboardDetect/blob/master/FindChessboards.py
+ "").
+
+<img src="./preprocessing/preprocessing_example.png.png" alt="Preprocessing" width="90%" />
+
+
 
 
 
