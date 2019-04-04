@@ -22,6 +22,10 @@ Upload the most up to date notebook from `clean_notebooks/` into [Google Colab](
 
 ## Initial Results on Easier Dataset
 
+##### Learning curves for a few different models:
+<img src="./assets/learning_curves.png" alt="Learning Curves" width="90%" />
+
+##### Some examples of output during training (gets better as we progress through mini-batches):
 <img src="./assets/chess_output.png" alt="Results image" width="90%" />
 
 
