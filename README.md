@@ -29,6 +29,18 @@ Upload the most up to date notebook from `clean_notebooks/` into [Google Colab](
 Preprocessing code adapted from [here](https://github.com/Elucidation/ChessboardDetect/blob/master/FindChessboards.py
  "").
 
+* Convert image to binary bitmap
+* Blur the image
+* [Sobol Filter](https://en.wikipedia.org/wiki/Sobel_operator)
+* [Canny Edge Detectors](https://en.wikipedia.org/wiki/Canny_edge_detector#Gaussian_filter)
+* [Finding Contours](https://docs.opencv.org/3.1.0/d4/d73/tutorial_py_contours_begin.html) with `cv2`
+* "Prune the contours"—[Ramer–Douglas–Peucker Algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) to reconcile "almost lines"
+* Find line intersections
+* Sanity checks
+    * convex hull
+    * correct num points
+    * check angles between lines
+
 <img src="./preprocessing/preprocessing_example.png" alt="Preprocessing" width="90%" />
 
 
