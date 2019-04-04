@@ -29,7 +29,7 @@ Upload the most up to date notebook from `clean_notebooks/` into [Google Colab](
 Preprocessing code adapted from [here](https://github.com/Elucidation/ChessboardDetect/blob/master/FindChessboards.py
  "").
 
-<img src="./preprocessing/preprocessing_example.png.png" alt="Preprocessing" width="90%" />
+<img src="./preprocessing/preprocessing_example.png" alt="Preprocessing" width="90%" />
 
 
 
