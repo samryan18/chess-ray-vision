@@ -1,3 +1,6 @@
+# OUT OF DATE
+# COLAB NOTEBOOK HAS ALL NECESSARY PIP IMPORTS
+
 jupyter
 pandas
 numpy

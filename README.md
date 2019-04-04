@@ -22,10 +22,14 @@ Upload the most up to date notebook from `clean_notebooks/` into [Google Colab](
 
 ## Initial Results on Easier Dataset
 
-##### Learning curves for a few different models:
+
+#### Learning curves for a few different CNN models:
+(implemented in PyTorch)
 <img src="./assets/learning_curves.png" alt="Learning Curves" width="90%" />
 
-##### Some examples of output during training (gets better as we progress through mini-batches):
+
+#### Some examples of output during training:
+The predictions get better as we progress through mini-batches.
 <img src="./assets/chess_output.png" alt="Results image" width="90%" />
 
 
@@ -34,7 +38,7 @@ Preprocessing code adapted from [here](https://github.com/Elucidation/Chessboard
  "").
 
 
-##### How Preprocessing Works:
+#### How Preprocessing Works:
 1. Convert image to binary bitmap
 2. Blur the image
 3. [Sobol Filter](https://en.wikipedia.org/wiki/Sobel_operator)
@@ -48,8 +52,3 @@ Preprocessing code adapted from [here](https://github.com/Elucidation/Chessboard
     * check angles between lines
 
 <img src="./preprocessing/preprocessing_example.png" alt="Preprocessing" width="90%" />
-
-
-
-
-
