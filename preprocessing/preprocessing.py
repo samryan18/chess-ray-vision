@@ -26,6 +26,7 @@ plt.rcParams['image.cmap'] = 'jet' # Default colormap is jet
 # Saddle
 
 def getSaddle(gray_img):
+    # https://en.wikipedia.org/wiki/Sobel_operator
     img = gray_img.astype(np.float64)
     gx = cv2.Sobel(img,cv2.CV_64F,1,0)
     gy = cv2.Sobel(img,cv2.CV_64F,0,1)
@@ -78,6 +79,7 @@ def getMinSaddleDist(saddle_pts, pt):
 def simplifyContours(contours):
   for i in range(len(contours)):
     # Approximate contour and update in place
+    # https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm
     contours[i] = cv2.approxPolyDP(contours[i],0.04*cv2.arcLength(contours[i],True),True)
 
 def is_square(cnt, eps=3.0, xratio_thresh = 0.5):
@@ -196,7 +198,12 @@ def pruneContours(contours, hierarchy, saddle):
 def getContours(img, edges, iters=10):
     # Morphological Gradient to get internal squares of canny edges. 
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(3,3))
+
+    # https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_morphological_ops/py_morphological_ops.html
+    # MORPH_GRADIENT means The result will look like the outline of the object.
     edges_gradient = cv2.morphologyEx(edges, cv2.MORPH_GRADIENT, kernel)
+
+    # https://docs.opencv.org/3.1.0/d4/d73/tutorial_py_contours_begin.html
     contours, hierarchy = cv2.findContours(edges_gradient, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
     
     simplifyContours(contours)  
