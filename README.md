@@ -5,11 +5,11 @@ Mukund Venkateswaran (mukundv@seas)
 Kurt Convey (kconvey@seas)  
 
 
-### How to Use
+## How to Use
 Upload the most up to date notebook from `clean_notebooks/` into [Google Colab](https://colab.research.google.com
  "Google Colab") and run all cells.
 
-### Useful Links
+## Useful Links
 [Overleaf Project Proposal](https://www.overleaf.com/5129544771bdtbmcqfddfs
  "Overleaf Project Proposal")
 
@@ -20,15 +20,17 @@ Upload the most up to date notebook from `clean_notebooks/` into [Google Colab](
  "")
 
 
-### Initial Results on Easier Dataset
+## Initial Results on Easier Dataset
 
 <img src="./assets/chess_output.png" alt="Results image" width="90%" />
 
 
-### Initial Preprocessing Results
+## Initial Preprocessing Results
 Preprocessing code adapted from [here](https://github.com/Elucidation/ChessboardDetect/blob/master/FindChessboards.py
  "").
 
+
+##### How Preprocessing Works:
 * Convert image to binary bitmap
 * Blur the image
 * [Sobol Filter](https://en.wikipedia.org/wiki/Sobel_operator)
