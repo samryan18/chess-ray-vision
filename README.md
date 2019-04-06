@@ -35,7 +35,7 @@ The predictions get better as we progress through mini-batches.
 
 ## Initial Preprocessing Results
 Preprocessing code adapted from [here](https://github.com/Elucidation/ChessboardDetect/blob/master/FindChessboards.py
- "").
+ ""). (Thanks to @[Elucidation](https://github.com/Elucidation ""))
 
 
 #### How Preprocessing Works:
