@@ -1,4 +1,6 @@
 # Code referenced from https://gist.github.com/gyglim/1f8dfb1b5c82627ae3efcfbbadb9f514
+
+# AND THIS https://github.com/yunjey/pytorch-tutorial/blob/master/tutorials/04-utils/tensorboard/main.py
 import tensorflow as tf
 import numpy as np
 import scipy.misc 
