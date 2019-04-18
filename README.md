@@ -20,6 +20,10 @@ Upload the most up to date notebook from `clean_notebooks/` into [Google Colab](
  "")
 
 
+#### First Perfect Classification!
+Queen's Gambit :)
+<img src="./assets/queens_gambit.png" alt="Queens Gambit" width="90%" />
+
 ## Initial Results on Easier Dataset
 
 
