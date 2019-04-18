@@ -428,7 +428,7 @@ def getBoardOutline(best_lines_x, best_lines_y, M):
 def processSingle(filename='input/img_10.png'):
   img,_ = loadImage(filename)
   M, ideal_grid, grid_next, grid_good, spts = findChessboard(img)
-  print(M)
+#   print(M)
 
   # View
   if M is not None:
@@ -590,7 +590,6 @@ def main_with_warped(glob_path):
 if __name__ == '__main__':
   print("Start")
   main_with_warped('training_images/IMG_*.JPG')
-#   main('training_images/IMG_1512.JPG')
 
 
 
