@@ -15,6 +15,7 @@ Kurt Convey (kconvey@seas)
 1. Preprocess your images:
     * Set the correct path to the dataset in `preprocessing/preprocess.py`
 ```
+$ git clone https://github.com/samryan18/chess-ray-vision.git
 $ pip install -r requirements.txt
 $ python preprocess.py
 ```
