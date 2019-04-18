@@ -461,15 +461,14 @@ def main(glob_path):
   filenames = glob.glob(glob_path)
   filenames = sorted(filenames)
   print("Files: %s" % filenames)
+  fig = figure( figsize=(20, 20))
   n = len(filenames)
-  fig = figure( figsize=(30, 30*n))
-  
   if (n == 0):
     print("No files found.")
     return
-  col = 2
-  row = (2*n)/col
-  if ((2*n)%col != 0):
+  col = 4
+  row = n/col
+  if (n%col != 0):
       row += 1
 
   for i in range(n):
@@ -478,23 +477,22 @@ def main(glob_path):
 
       img = loadImage(filename)
       M, ideal_grid, grid_next, grid_good, spts = findChessboard(img)
+
       # View
       if M is not None:
           M, _ = generateNewBestFit((ideal_grid+8)*32, grid_next, grid_good) # generate mapping for warping image
           img_warp = cv2.warpPerspective(img, M, (17*32, 17*32), flags=cv2.WARP_INVERSE_MAP)
 
           best_lines_x, best_lines_y = getBestLines(img_warp)
-
           xy_unwarp = getUnwarpedPoints(best_lines_x, best_lines_y, M)
           board_outline_unwarp = getBoardOutline(best_lines_x, best_lines_y, M)
 
-          a=fig.add_subplot(row,col,2*i+1)
+          a=fig.add_subplot(row,col,i+1)
           
           axs = plt.axis()
           imshow(img, cmap='Greys_r');
           axs = plt.axis()
           plt.plot(xy_unwarp[:,0], xy_unwarp[:,1], 'r.',)
-          # HERE
 
           plt.plot(board_outline_unwarp[:,0], board_outline_unwarp[:,1], 'ro-', markersize=5, linewidth=3)
           plt.axis(axs)
@@ -502,22 +500,8 @@ def main(glob_path):
           axis('off')
           print("    N good pts %d" % np.sum(grid_good))
           
-          a=fig.add_subplot(row,col,2*i+2)
-          # show warped
-          side_len = 256
-          pts_dest = np.array([[0,side_len],[side_len,side_len],[side_len,0],[0,0]])
-          h, status = cv2.findHomography(board_outline_unwarp[0:4],pts_dest)
-          im_out = cv2.warpPerspective(img, h, (side_len,side_len))
-          # show warped
-          axs = plt.axis()
-          imshow(im_out, cmap='Greys_r');
-          axs = plt.axis()
-          plt.axis(axs)
-          plt.title("warped: %s :  N matches=%d" % (filename, np.sum(grid_good)))
-          axis('off')
-          
       else:
-          a=fig.add_subplot(row,col,2*i+1)
+          a=fig.add_subplot(row,col,i+1)
           imshow(img, cmap='Greys_r');
           plt.title("%s : Fail" % (filename))
           axis('off')
@@ -530,7 +514,6 @@ def main(glob_path):
 if __name__ == '__main__':
   print("Start")
   main('training_images/IMG_*.JPG')
-#   main('training_images/IMG_1512.JPG')
 
 
 
