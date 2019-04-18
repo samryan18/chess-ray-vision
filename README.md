@@ -6,14 +6,14 @@ Kurt Convey (kconvey@seas)
 
 
 ## How to Use
-To run on the easy dataset: 
+#### To run on the easy dataset: 
 
 1. Upload the most up to date easy dataset notebook from `clean_notebooks/` into [Google Colab](https://colab.research.google.com "Google Colab") and run all cells.
 
-To run on a real dataset : 
+#### To run on a real dataset : 
 
 1. Preprocess your images:
-    * Set the correct path to the dataset in `preprocessing/preprocess.py `
+    * Set the correct path to the dataset in `preprocessing/preprocess.py`
 ```
 $ pip install -r requirements.txt
 $ python preprocess.py
