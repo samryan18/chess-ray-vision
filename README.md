@@ -6,26 +6,24 @@ Kurt Convey (kconvey@seas)
 
 
 ## How to Use
-Upload the most up to date notebook from `clean_notebooks/` into [Google Colab](https://colab.research.google.com
- "Google Colab") and run all cells.
+To run on the easy dataset: 
+    1. Upload the most up to date easy dataset notebook from `clean_notebooks/` into [Google Colab](https://colab.research.google.com "Google Colab") and run all cells.
 
-## Useful Links
-[Overleaf Project Proposal](https://www.overleaf.com/5129544771bdtbmcqfddfs
- "Overleaf Project Proposal")
+To run on a real dataset : 
+    1. Preprocess your images
+        * Set the correct path to the dataset in `preprocessing/preprocess.py `
+```
+$ pip install -r requirements.txt
+$ python preprocess.py
+```
+    2. Upload the most up to real dataset notebook date notebook from `clean_notebooks/` into [Google Colab](https://colab.research.google.com "Google Colab") and update path to the preprocessed dataset.
 
-[Prelim Dataset](https://github.com/mukundv7/crvdataset
- "Initial Dataset")
 
-[Paper on ML to detect corners](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5134517/
- "")
-
-
-#### First Perfect Classification!
+## First Perfect Classification!
 Queen's Gambit :)
-<img src="./assets/queens_gambit.png" alt="Queens Gambit" width="90%" />
+<img src="./assets/queens_gambit.png" alt="Queens Gambit" width="65%" />
 
 ## Initial Results on Easier Dataset
-
 
 #### Learning curves for a few different CNN models:
 (implemented in PyTorch)
@@ -56,3 +54,13 @@ Preprocessing code adapted from [here](https://github.com/Elucidation/Chessboard
     * check angles between lines
 
 <img src="./preprocessing/preprocessing_example.png" alt="Preprocessing" width="90%" />
+
+## Useful Links
+[Overleaf Project Proposal](https://www.overleaf.com/5129544771bdtbmcqfddfs
+ "Overleaf Project Proposal")
+
+[Prelim Dataset](https://github.com/mukundv7/crvdataset
+ "Initial Dataset")
+
+[Paper on ML to detect corners](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5134517/
+ "")
