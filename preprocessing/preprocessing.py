@@ -341,10 +341,11 @@ def loadImage(filepath):
     aspect_ratio = min(500.0/img_width, 500.0/img_height)
     new_width, new_height = ((np.array(img_orig.size) * aspect_ratio)).astype(int)
     img = img_orig.resize((new_width,new_height), resample=PIL.Image.BILINEAR)
-    img = img.convert('L') # grayscale
+    img_grey = img.convert('L') # grayscale
     img = np.array(img)
+    img_grey = np.array(img_grey)
     
-    return img
+    return img_grey, img_orig
 
 def findChessboard(img, min_pts_needed=15, max_pts_needed=25):
     blur_img = cv2.blur(img, (3,3)) # Blur it
@@ -425,7 +426,7 @@ def getBoardOutline(best_lines_x, best_lines_y, M):
     return xy_unwarp[0,:,:]
 
 def processSingle(filename='input/img_10.png'):
-  img = loadImage(filename)
+  img,_ = loadImage(filename)
   M, ideal_grid, grid_next, grid_good, spts = findChessboard(img)
   print(M)
 
@@ -476,7 +477,7 @@ def main(glob_path):
       filename = filenames[i]
       print ("Processing %d/%d : %s" % (i+1,n,filename))
 
-      img = loadImage(filename)
+      img, img_orig = loadImage(filename)
       M, ideal_grid, grid_next, grid_good, spts = findChessboard(img)
       # View
       if M is not None:
@@ -506,8 +507,8 @@ def main(glob_path):
           # show warped
           side_len = 256
           pts_dest = np.array([[0,side_len],[side_len,side_len],[side_len,0],[0,0]])
-          h, status = cv2.findHomography(board_outline_unwarp[0:4],pts_dest)
-          im_out = cv2.warpPerspective(img, h, (side_len,side_len))
+          h, status = cv2.findHomography(board_outline_unwarp[0:4], pts_dest)
+          im_out = cv2.warpPerspective(np.squeeze(img), h, (side_len,side_len))
           # show warped
           axs = plt.axis()
           imshow(im_out, cmap='Greys_r');
@@ -515,7 +516,8 @@ def main(glob_path):
           plt.axis(axs)
           plt.title("warped: %s :  N matches=%d" % (filename, np.sum(grid_good)))
           axis('off')
-          
+
+
       else:
           a=fig.add_subplot(row,col,2*i+1)
           imshow(img, cmap='Greys_r');
@@ -525,11 +527,69 @@ def main(glob_path):
 
   plt.savefig('preprocessing_example.png', bbox_inches='tight')
 
+def main_with_warped(glob_path):
+  filenames = glob.glob(glob_path)
+  filenames = sorted(filenames)
+  print("Files: %s" % filenames)
+  n = len(filenames)
+  
+  if (n == 0):
+    print("No files found.")
+    return
+  col = 2
+  row = (2*n)/col
+  if ((2*n)%col != 0):
+      row += 1
+
+  for i in range(n):
+      filename = filenames[i]
+      print ("Processing %d/%d : %s" % (i+1,n,filename))
+
+      img, img_orig = loadImage(filename)
+      M, ideal_grid, grid_next, grid_good, spts = findChessboard(img)
+      # View
+      if M is not None:
+          M, _ = generateNewBestFit((ideal_grid+8)*32, grid_next, grid_good) # generate mapping for warping image
+          img_warp = cv2.warpPerspective(img, M, (17*32, 17*32), flags=cv2.WARP_INVERSE_MAP)
+
+          best_lines_x, best_lines_y = getBestLines(img_warp)
+
+          xy_unwarp = getUnwarpedPoints(best_lines_x, best_lines_y, M)
+          board_outline_unwarp = getBoardOutline(best_lines_x, best_lines_y, M)
+
+          
+          # show warped
+          side_len = 2048
+          pts_dest = np.array([[0,side_len],[side_len,side_len],[side_len,0],[0,0]])
+          h, status = cv2.findHomography(board_outline_unwarp[0:4], pts_dest)
+          im_out = cv2.warpPerspective(np.squeeze(img), h, (side_len,side_len))
+          # show warped
+          fig = plt.figure(frameon=False)
+          ax = plt.Axes(fig, [0., 0., 1., 1.])
+          ax.set_axis_off()
+          fig.add_axes(ax)
+          ax.imshow(im_out, cmap='Greys_r');
+
+        #   plt.title(f"{filename} Warped")
+          axis('off')
+          save_dest = f'warped_training_images/{filename}.png'
+        #   print(f'saving to {save_dest}')
+          plt.savefig(save_dest, bbox_inches='tight', pad_inches=0)
+
+      else:
+          print('fucked up')
+          a=fig.add_subplot(row,col,2*i+1)
+          imshow(img, cmap='Greys_r');
+          plt.title("%s : Fail" % (filename))
+          axis('off')
+          print("    Fail")
+
+
 
 
 if __name__ == '__main__':
   print("Start")
-  main('training_images/IMG_*.JPG')
+  main_with_warped('training_images/IMG_*.JPG')
 #   main('training_images/IMG_1512.JPG')
 
 
