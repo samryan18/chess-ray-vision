@@ -91,3 +91,7 @@ Preprocessing code adapted from [here](https://github.com/Elucidation/Chessboard
 
 [Paper on ML to detect corners](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5134517/
  "")
+
+ ## Main Libraries Used
+ * PyTorch (for training models)
+ * opencv-python (for image preprocessing)
