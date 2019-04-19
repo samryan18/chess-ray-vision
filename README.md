@@ -16,12 +16,12 @@ Kurt Convey (kconvey@seas)
 
 
 #### To Preprocess Images for a Real Dataset : 
+1. Figure out where the images are stored and where to put the preprocessed images.
 
 ```
 $ git clone https://github.com/samryan18/chess-ray-vision.git
 $ cd chess-ray-vision
 $ pip install -e .
-$ cd preprocessing
 $ preprocess [OPTIONS] # or run with no options to be prompted for inputs
 
 # Example run with inputs
@@ -42,7 +42,7 @@ $ preprocess --verbose --glob_path="real_images_tr/labeled/*.jpeg" --dest_path="
 * Include `--verbose` to run in this mode
 
 ###### Help [--help]
-* Run `$ itunes_to_spotify --help` for help.
+* Run `$ preprocess --help` for help.
 
 
 
