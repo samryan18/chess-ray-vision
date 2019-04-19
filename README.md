@@ -10,16 +10,40 @@ Kurt Convey (kconvey@seas)
 
 1. Upload the most up to date easy dataset notebook from `clean_notebooks/` into [Google Colab](https://colab.research.google.com "Google Colab") and run all cells.
 
-#### To run on a real dataset : 
+#### To run on a real dataset: 
+1. Follow instructions below to preprocess labeled images
+2. Upload the most up to real dataset notebook date notebook from `clean_notebooks/` into [Google Colab](https://colab.research.google.com "Google Colab") and update path to the preprocessed dataset.
 
-1. Preprocess your images:
-    * Set the correct path to the dataset in `preprocessing/preprocess.py`
+
+#### To Preprocess Images for a Real Dataset : 
+
 ```
 $ git clone https://github.com/samryan18/chess-ray-vision.git
-$ pip install -r requirements.txt
-$ python preprocess.py
+$ cd chess-ray-vision
+$ pip install -e .
+$ cd preprocessing
+$ preprocess [OPTIONS] # or run with no options to be prompted for inputs
+
+# Example run with inputs
+$ preprocess --verbose --glob_path="real_images_tr/labeled/*.jpeg" --dest_path="warped_training_images"
 ```
-2. Upload the most up to real dataset notebook date notebook from `clean_notebooks/` into [Google Colab](https://colab.research.google.com "Google Colab") and update path to the preprocessed dataset.
+##### Options
+
+###### Glob Path [--glob_path]
+* Include `--glob_path="path_to_directory"` to specify where the images to preprocess are stored
+* Prompted for if not included
+
+###### Destination Path [--dest_path]
+* Include `--dest_path="path_to_destination_directory"` to specify where to put preprocessed images
+* Prompted for if not included
+
+###### Verbose [--verbose]
+* Flag for whether to print info about the run
+* Include `--verbose` to run in this mode
+
+###### Help [--help]
+* Run `$ itunes_to_spotify --help` for help.
+
 
 
 ## First Perfect Classification!

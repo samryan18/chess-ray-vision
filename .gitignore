@@ -8,3 +8,4 @@ __pycache__
 assets/.chess_output.png.icloud
 sam_notes.md
 logs/
+*.egg-info

@@ -1,5 +1,8 @@
-from preprocessing import *
+from preprocessing.preprocessing import *
 from tqdm import tqdm
+import click
+import glob
+
 # import sys
 # import traceback
 
@@ -12,14 +15,24 @@ from tqdm import tqdm
 
 # sys.stdout = TracePrints()
 
-def main_with_warped(glob_path):
+
+
+@click.command()
+@click.option('--glob_path', prompt=True,
+              help='Path to directory with images to preprocess')
+@click.option('--dest_path', prompt=True, help='Path to directory to put '
+                                              f'output. e.g. warped_training_images')
+@click.option('--verbose', is_flag=True, help="Will print verbose messages.")
+def main_with_warped(glob_path, dest_path, verbose):
     filenames = glob.glob(glob_path)
     filenames = sorted(filenames)
-    print(f"Files: {filenames}")
+    # print(f"Files: {filenames}")
   
     if (len(filenames) == 0):
         print("No files found.")
         return
+    else:
+        print(f"Found {len(filenames)} files.")
     
     with tqdm(total=len(filenames), 
             desc=f'Files from {glob_path}', 
@@ -60,7 +73,7 @@ def main_with_warped(glob_path):
                 ax.imshow(im_out, cmap='Greys_r');
                 axis('off')
                 fname = filename.split('.')[-2].split('/')[-1]
-                save_dest = f'warped_training_images/{fname}.png'
+                save_dest = f'{dest_path}/{fname}.png'
                 plt.savefig(save_dest, bbox_inches='tight', pad_inches=0)
 
             else:
@@ -69,4 +82,7 @@ def main_with_warped(glob_path):
 
 if __name__ == '__main__':
     # main_with_warped('training_images/IMG_*.JPG')
-    main_with_warped('real_images_tr/labeled/*.jpeg')
+    main_with_warped()
+
+
+# preprocess --verbose --glob_path="real_images_tr/labeled/*.jpeg" --dest_path="warped_training_images"
