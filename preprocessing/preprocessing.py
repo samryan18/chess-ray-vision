@@ -1,9 +1,9 @@
 '''
-Preprocessing Code
+Preprocessing Utility Code
 
-(In development)
+Thanks @Elucidation.
 
-Code taken almost verbatim from 
+Code adapted from 
 https://github.com/Elucidation/ChessboardDetect/blob/master/FindChessboards.py
 
 '''
@@ -333,21 +333,23 @@ def getBestLines(img_warped):
     return (best_lines_x, best_lines_y)
 
 
-def loadImage(filepath):
+def loadImage(filepath, resolution=1000.0):
     img_orig = PIL.Image.open(filepath)
     
     img_width, img_height = img_orig.size
 
     # Resize
-    aspect_ratio = min(1000.0/img_width, 1000.0/img_height)
+    aspect_ratio = min(resolution/img_width, resolution/img_height)
     new_width, new_height = ((np.array(img_orig.size) * aspect_ratio)).astype(int)
     img = img_orig.resize((new_width,new_height), resample=PIL.Image.BILINEAR)
+    
     img_grey = img.convert('L') # grayscale
-    img = img.convert('RGB') # grayscale
-    img = np.array(img)
     img_grey = np.array(img_grey)
 
-    return img_grey, img
+    img_color = img.convert('RGB') # color
+    img_color = np.array(img_color)
+
+    return img_grey, img_color
 
 def findChessboard(img, min_pts_needed=15, max_pts_needed=25):
     blur_img = cv2.blur(img, (3,3)) # Blur it

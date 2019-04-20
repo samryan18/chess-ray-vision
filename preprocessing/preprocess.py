@@ -1,3 +1,8 @@
+'''
+Preprocessing Main
+
+'''
+
 from preprocessing.preprocessing import *
 from tqdm import tqdm
 import click
@@ -75,6 +80,3 @@ def main_with_warped(glob_path, dest_path, verbose):
 
 if __name__ == '__main__':
     main_with_warped()
-
-
-# preprocess --verbose --glob_path="real_images_tr/labeled/*.jpeg" --dest_path="warped_training_images"

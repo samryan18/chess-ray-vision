@@ -26,11 +26,12 @@ $ preprocess [OPTIONS] # or run with no options to be prompted for inputs
 
 # Example run with inputs
 $ preprocess --verbose --glob_path="real_images_tr/labeled/*.jpeg" --dest_path="warped_training_images"
+$ preprocess --verbose --glob_path="path_to_images/*.jpeg" --dest_path="./preprocessed"
 ```
 ##### Options
 
 ###### Glob Path [--glob_path]
-* Include `--glob_path="path_to_directory"` to specify where the images to preprocess are stored
+* Include `--glob_path="path_to_directory/*.jpeg"` to specify where the images to preprocess are stored and what the file format is
 * Prompted for if not included
 
 ###### Destination Path [--dest_path]
