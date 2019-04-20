@@ -25,7 +25,6 @@ $ pip install -e .
 $ preprocess [OPTIONS] # or run with no options to be prompted for inputs
 
 # Example run with inputs
-$ preprocess --verbose --glob_path="real_images_tr/labeled/*.jpeg" --dest_path="warped_training_images"
 $ preprocess --verbose --glob_path="path_to_images/*.jpeg" --dest_path="./preprocessed"
 ```
 ##### Options
