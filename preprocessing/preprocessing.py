@@ -335,17 +335,19 @@ def getBestLines(img_warped):
 
 def loadImage(filepath):
     img_orig = PIL.Image.open(filepath)
+    
     img_width, img_height = img_orig.size
 
     # Resize
-    aspect_ratio = min(500.0/img_width, 500.0/img_height)
+    aspect_ratio = min(1000.0/img_width, 1000.0/img_height)
     new_width, new_height = ((np.array(img_orig.size) * aspect_ratio)).astype(int)
     img = img_orig.resize((new_width,new_height), resample=PIL.Image.BILINEAR)
     img_grey = img.convert('L') # grayscale
+    img = img.convert('RGB') # grayscale
     img = np.array(img)
     img_grey = np.array(img_grey)
-    
-    return img_grey, img_orig
+
+    return img_grey, img
 
 def findChessboard(img, min_pts_needed=15, max_pts_needed=25):
     blur_img = cv2.blur(img, (3,3)) # Blur it

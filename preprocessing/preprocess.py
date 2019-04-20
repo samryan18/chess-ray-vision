@@ -5,6 +5,8 @@ import glob
 
 def process_image(filename, dest_path, verbose):
     img, img_orig = loadImage(filename)
+    # print(np.shape(img))
+    # print(np.shape(img_orig))
     M, ideal_grid, grid_next, grid_good, spts = findChessboard(img)
     # View
     if M is not None:
@@ -25,10 +27,12 @@ def process_image(filename, dest_path, verbose):
 
         # calculate homography
         h, status = cv2.findHomography(board_outline_unwarp[0:4], pts_dest)
-        im_out = cv2.warpPerspective(np.squeeze(img), h, (side_len,side_len))
+        
+        im_out = cv2.warpPerspective(np.squeeze(img_orig), h, (side_len,side_len))
         
         # write warped to file
-        fig = plt.figure(frameon=False, figsize=(side_len/myDPI,side_len/myDPI))
+        # fig = plt.figure(frameon=False, figsize=(side_len/myDPI,side_len/myDPI))
+        fig = plt.figure(frameon=False, figsize=(30,30))
         im_plot = imshow(im_out, cmap='Greys_r', aspect='auto')
         ax = plt.gca()
         ax.set_axis_off()
