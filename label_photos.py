@@ -23,8 +23,8 @@ for label in labels:
 print(f'Made the {len(filename_labels)} labels unique.')
 
 path_to_photos = 'photos'
-
-for i,fname in enumerate(os.listdir(path_to_photos)):
+directory_list = os.listdir(path_to_photos).sort()
+for i,fname in enumerate(directory_list):
     print(fname)
     ext = fname.split('.')[-1]
     src = f'{path_to_photos}/{fname}'
