@@ -50,7 +50,12 @@ $ preprocess --verbose --glob_path="path_to_images/*.jpeg" --dest_path="./prepro
 Queen's Gambit :)
 <img src="./assets/queens_gambit.png" alt="Queens Gambit" width="65%" />
 
-## Initial Results on Easier Dataset
+## Results on Harder Dataset
+We are nearing 100% validation accuracy.
+<img src="./assets/results.png" alt="Learning Curves" width="90%" />
+
+
+## Results on Easier Dataset
 
 #### Learning curves for a few different CNN models:
 (implemented in PyTorch)
