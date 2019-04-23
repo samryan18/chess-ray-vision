@@ -22,11 +22,20 @@ for label in labels:
 
 print(f'Made the {len(filename_labels)} labels unique.')
 
-path_to_photos = 'photos'
-directory_list = os.listdir(path_to_photos).sort()
+path_to_photos = 'good_ass_labels'
+directory_list = os.listdir(path_to_photos)
+directory_list = [x for x in directory_list if x != '.idea']
+directory_list.sort()
+
+if not (len(directory_list)==len(filename_labels)):
+    print('get fucked wrong num files')
+
 for i,fname in enumerate(directory_list):
-    print(fname)
     ext = fname.split('.')[-1]
     src = f'{path_to_photos}/{fname}'
-    dest = f'{path_to_photos}/{filename_labels[i]}.{ext}'
-    os.rename(src, dest) 
+    label = (filename_labels[i]).replace('/','-')
+    dest = (f'{path_to_photos}/{label}.{ext}')
+    print(dest)
+    os.rename(src, dest)
+
+print('successfully renamed files')
