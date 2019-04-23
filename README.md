@@ -45,15 +45,13 @@ $ preprocess --verbose --glob_path="path_to_images/*.jpeg" --dest_path="./prepro
 * Run `$ preprocess --help` for help.
 
 
-
-## First Perfect Classification!
-Queen's Gambit :)
-<img src="./assets/queens_gambit.png" alt="Queens Gambit" width="65%" />
-
 ## Results on Harder Dataset
 We are nearing 100% validation accuracy.
 <img src="./assets/results.png" alt="Learning Curves" width="90%" />
 
+#### First Perfect Classification!
+Queen's Gambit :)
+<img src="./assets/queens_gambit.png" alt="Queens Gambit" width="65%" />
 
 ## Results on Easier Dataset
 
@@ -62,9 +60,9 @@ We are nearing 100% validation accuracy.
 <img src="./assets/learning_curves.png" alt="Learning Curves" width="90%" />
 
 
-#### Some examples of output during training:
+<!-- #### Some examples of output during training:
 The predictions get better as we progress through mini-batches.
-<img src="./assets/chess_output.png" alt="Results image" width="90%" />
+<img src="./assets/chess_output.png" alt="Results image" width="90%" /> -->
 
 
 ## Initial Preprocessing Results
@@ -85,7 +83,7 @@ Preprocessing code adapted from [here](https://github.com/Elucidation/Chessboard
     * correct num points
     * check angles between lines
 
-<img src="./preprocessing/preprocessing_example.png" alt="Preprocessing" width="90%" />
+<!-- <img src="./preprocessing/preprocessing_example.png" alt="Preprocessing" width="90%" /> -->
 
 ## Useful Links
 [Overleaf Project Proposal](https://www.overleaf.com/5129544771bdtbmcqfddfs
