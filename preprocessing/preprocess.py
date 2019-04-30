@@ -8,7 +8,7 @@ from tqdm import tqdm
 import click
 import glob
 
-def process_image(filename, dest_path, verbose):
+def process_image(filename, dest_path, verbose, plot_original=False):
     img, img_orig = loadImage(filename)
     # print(np.shape(img))
     # print(np.shape(img_orig))
@@ -45,6 +45,18 @@ def process_image(filename, dest_path, verbose):
         save_dest = f'{dest_path}/{fname}.png'
         extent = ax.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
         plt.savefig(save_dest, bbox_inches=extent, pad_inches=0)
+        
+        if plot_original:
+            fig = plt.figure(frameon=False, figsize=(30,42))
+            im_plot = imshow(img_orig, cmap='Greys_r', aspect='auto')
+            plt.plot(board_outline_unwarp[:,0], board_outline_unwarp[:,1], 'ro-', markersize=5, linewidth=5)
+
+            ax = plt.gca()
+            ax.set_axis_off()
+            fname = filename.split('.')[-2].split('/')[-1]
+            save_dest = f'{dest_path}/ORIGINAL_{fname}.png'
+            extent = ax.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
+            plt.savefig(save_dest, bbox_inches=extent, pad_inches=0)
 
     else:
         print(f'Could not preprocess: {filename}')

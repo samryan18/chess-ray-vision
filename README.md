@@ -16,6 +16,8 @@ Kurt Convey (kconvey@seas)
 
 
 #### To Preprocess Images for a Real Dataset : 
+Only necessary for a new dataset. There is a preprocessed dataset available [here](https://github.com/mukundv7/crvdataset) which is referenced in the current notebook.
+
 1. Figure out where the images are stored and where to put the preprocessed images.
 
 ```
@@ -82,18 +84,10 @@ Preprocessing code adapted from [here](https://github.com/Elucidation/Chessboard
     * convex hull
     * correct num points
     * check angles between lines
+9. Warp images
+10. Write to new files
 
 <!-- <img src="./preprocessing/preprocessing_example.png" alt="Preprocessing" width="90%" /> -->
-
-## Useful Links
-[Overleaf Project Proposal](https://www.overleaf.com/5129544771bdtbmcqfddfs
- "Overleaf Project Proposal")
-
-[Prelim Dataset](https://github.com/mukundv7/crvdataset
- "Initial Dataset")
-
-[Paper on ML to detect corners](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5134517/
- "")
 
  ## Main Libraries Used
  * PyTorch (for training models)
