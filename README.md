@@ -58,6 +58,14 @@ We are nearing 100% validation accuracy.
 Queen's Gambit :)
 <img src="./assets/queens_gambit.png" alt="Queens Gambit" width="65%" />
 
+<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+## Loss Function
+<div lang="latex">
+$$ batch\_accuracy = \frac{1}{64B}\sum_{i=1}^{B}\sum_{j=1}^{64} \mathds{1}(\hat{y}_{ij}=y_{ij}) $$
+</div>
+<div lang="latex">
+$$ batch\_loss = -\sum_{i=1}^{B}\sum_{j=1}^{64}\sum_{k=1}^{13} {\phi}_{ijk} log(\hat{\phi}_{ijk}) $$
+</div>
 
 ## Results on Easier Dataset
 As a proof of concept, we ran our models on a much easier dataset of online chessboard imgaes.
@@ -80,7 +88,7 @@ The predictions get better as we progress through mini-batches.
 Preprocessing code adapted from [here](https://github.com/Elucidation/ChessboardDetect/blob/master/FindChessboards.py
  ""). (Thanks to @[Elucidation](https://github.com/Elucidation ""))
 
-<img src="./assets/preprocessing_new.png" alt="Preprocessing Example" width="90%" /> -->
+<img src="./assets/preprocessing_new.png" alt="Preprocessing Example" width="90%" />
 
 #### How Preprocessing Works:
 1. Convert image to binary bitmap
