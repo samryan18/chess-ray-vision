@@ -68,7 +68,6 @@ As a proof of concept, we ran our models on a much easier dataset of online ches
 
 
 #### Learning curves for a few different CNN models:
-(implemented in PyTorch)
 <img src="./assets/learning_curves.png" alt="Learning Curves" width="90%" />
 
 
@@ -81,6 +80,7 @@ The predictions get better as we progress through mini-batches.
 Preprocessing code adapted from [here](https://github.com/Elucidation/ChessboardDetect/blob/master/FindChessboards.py
  ""). (Thanks to @[Elucidation](https://github.com/Elucidation ""))
 
+<img src="./assets/preprocessing_new.png" alt="Preprocessing Example" width="90%" /> -->
 
 #### How Preprocessing Works:
 1. Convert image to binary bitmap
