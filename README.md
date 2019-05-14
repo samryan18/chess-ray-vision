@@ -1,7 +1,7 @@
 # CIS 520 Final Project
 The goal of this project was to detect chess pieces in photos of live chess games. We constructed our own hand-labeled dataset of [500 photos](https://github.com/samryan18/chess-dataset/tree/master/labeled_originals).
 
-Our training set was relatively small with a lot of noise (angle of photos, background, etc.). Using Hough Transforms, we were able to find the corners of the boards and warp every image into a perfect square, which significantly reduced the noise. With these [simpler images](https://github.com/samryan18/chess-dataset/tree/master/labeled_preprocessed), we were able to use a relatively straightforward CNN to classify the piece on all 64 spaces on the board with almost perfect accuracy.
+Our training set was relatively small with a lot of noise (angle of photos, background, etc.). Using Hough Transforms, we were able to find the corners of the boards and warp every image into a perfect square, which significantly reduced the noise. With these [simpler images](https://github.com/samryan18/chess-dataset/tree/master/labeled_preprocessed), we were able to use a relatively straightforward CNN to classify the piece on each of the 64 spaces in the board images with almost perfect accuracy.
 
 Our paper can be found [here](https://github.com/samryan18/chess-ray-vision/blob/master/Chess%20Ray%20Vision.pdf).
 
@@ -22,7 +22,6 @@ Our paper can be found [here](https://github.com/samryan18/chess-ray-vision/blob
 #### To Preprocess Images for a Real Dataset : 
 Only necessary for a new dataset. There is a preprocessed dataset available [here](https://github.com/mukundv7/crvdataset) which is referenced in the current notebook.
 
-1. Figure out where the images are stored and where to put the preprocessed images.
 
 ```
 $ git clone https://github.com/samryan18/chess-ray-vision.git
@@ -51,7 +50,7 @@ $ preprocess --verbose --glob_path="path_to_images/*.jpeg" --dest_path="./prepro
 * Run `$ preprocess --help` for help.
 
 
-## Results on Harder Dataset
+## Results
 We are nearing 100% validation accuracy.
 <img src="./assets/results.png" alt="Learning Curves" width="90%" />
 
@@ -59,7 +58,9 @@ We are nearing 100% validation accuracy.
 Queen's Gambit :)
 <img src="./assets/queens_gambit.png" alt="Queens Gambit" width="65%" />
 
+
 ## Results on Easier Dataset
+As a proof of concept, we ran our models on a much easier dataset of online chessboard imgaes.
 
 #### How to run on the easy dataset: 
 
@@ -76,7 +77,7 @@ The predictions get better as we progress through mini-batches.
 <img src="./assets/chess_output.png" alt="Results image" width="90%" /> -->
 
 
-## Initial Preprocessing Results
+## Preprocessing
 Preprocessing code adapted from [here](https://github.com/Elucidation/ChessboardDetect/blob/master/FindChessboards.py
  ""). (Thanks to @[Elucidation](https://github.com/Elucidation ""))
 
