@@ -1,7 +1,7 @@
 # CIS 520 Final Project
 The goal of this project was to detect chess pieces in photos of live chess games. We constructed our own hand-labeled dataset of [500 photos](https://github.com/samryan18/chess-dataset/tree/master/labeled_originals).
 
-At first every model we threw at the problem couldn't perform much better than an intelligent naive model. The training set was too small with too much noise (angle of photos, background, etc.). Using Hough Transforms, we were able to find the corners of the boards and warped every image into a perfect square. With these [simpler images](https://github.com/samryan18/chess-dataset/tree/master/labeled_preprocessed), we were able to use a straightforward CNN to classify the piece on all 64 spaces on the board with almost perfect accuracy.
+Our training set was relatively small with a lot of noise (angle of photos, background, etc.). Using Hough Transforms, we were able to find the corners of the boards and warp every image into a perfect square, which significantly reduced the noise. With these [simpler images](https://github.com/samryan18/chess-dataset/tree/master/labeled_preprocessed), we were able to use a relatively straightforward CNN to classify the piece on all 64 spaces on the board with almost perfect accuracy.
 
 Our paper can be found [here](https://github.com/samryan18/chess-ray-vision/blob/master/Chess%20Ray%20Vision.pdf).
 
@@ -13,11 +13,8 @@ Our paper can be found [here](https://github.com/samryan18/chess-ray-vision/blob
 
 
 ## How to Use
-#### To run on the easy dataset: 
 
-1. Upload the most up to date easy dataset notebook from `clean_notebooks/` into [Google Colab](https://colab.research.google.com "Google Colab") and run all cells.
-
-#### To run on a real dataset: 
+#### To run on the real dataset: 
 1. Follow instructions below to preprocess labeled images
 2. Upload the most up to real dataset notebook date notebook from `clean_notebooks/` into [Google Colab](https://colab.research.google.com "Google Colab") and update path to the preprocessed dataset.
 
@@ -63,6 +60,11 @@ Queen's Gambit :)
 <img src="./assets/queens_gambit.png" alt="Queens Gambit" width="65%" />
 
 ## Results on Easier Dataset
+
+#### How to run on the easy dataset: 
+
+1. Upload the most up to date easy dataset notebook from `clean_notebooks/` into [Google Colab](https://colab.research.google.com "Google Colab") and run all cells.
+
 
 #### Learning curves for a few different CNN models:
 (implemented in PyTorch)
