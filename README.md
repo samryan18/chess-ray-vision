@@ -60,12 +60,11 @@ Queen's Gambit :)
 
 <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
 ## Loss Function
+<a href="https://www.codecogs.com/eqnedit.php?latex=batch\_accuracy&space;=&space;\frac{1}{64B}\sum_{i=1}^{B}\sum_{j=1}^{64}&space;{1}(\hat{y}_{ij}=y_{ij})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?batch\_accuracy&space;=&space;\frac{1}{64B}\sum_{i=1}^{B}\sum_{j=1}^{64}&space;{1}(\hat{y}_{ij}=y_{ij})" title="batch\_accuracy = \frac{1}{64B}\sum_{i=1}^{B}\sum_{j=1}^{64} {1}(\hat{y}_{ij}=y_{ij})" /></a>
 <div lang="latex">
-$$ batch\_accuracy = \frac{1}{64B}\sum_{i=1}^{B}\sum_{j=1}^{64} \mathds{1}(\hat{y}_{ij}=y_{ij}) $$
-</div>
-<div lang="latex">
-$$ batch\_loss = -\sum_{i=1}^{B}\sum_{j=1}^{64}\sum_{k=1}^{13} {\phi}_{ijk} log(\hat{\phi}_{ijk}) $$
-</div>
+
+<img src="http://latex.codecogs.com/svg.latex?batch\_accuracy = \frac{1}{64B}\sum_{i=1}^{B}\sum_{j=1}^{64} {1}(\hat{y}_{ij}=y_{ij})" border="0"/>
+<a href="https://www.codecogs.com/eqnedit.php?latex=batch\_loss&space;=&space;-\sum_{i=1}^{B}\sum_{j=1}^{64}\sum_{k=1}^{13}&space;{\phi}_{ijk}&space;log(\hat{\phi}_{ijk})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?batch\_loss&space;=&space;-\sum_{i=1}^{B}\sum_{j=1}^{64}\sum_{k=1}^{13}&space;{\phi}_{ijk}&space;log(\hat{\phi}_{ijk})" title="batch\_loss = -\sum_{i=1}^{B}\sum_{j=1}^{64}\sum_{k=1}^{13} {\phi}_{ijk} log(\hat{\phi}_{ijk})" /></a>
 
 ## Results on Easier Dataset
 As a proof of concept, we ran our models on a much easier dataset of online chessboard imgaes.
