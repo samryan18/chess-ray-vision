@@ -58,10 +58,10 @@ We are nearing 100% validation accuracy.
 Queen's Gambit :)
 <img src="./assets/queens_gambit.png" alt="Queens Gambit" width="65%" />
 
-<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
 ## Loss Function
-
 <img src="http://latex.codecogs.com/svg.latex?batch\_accuracy = \frac{1}{64B}\sum_{i=1}^{B}\sum_{j=1}^{64} {1}(\hat{y}_{ij}=y_{ij})" border="0"/>
+
+
 <img src="http://latex.codecogs.com/svg.latex?batch\_loss = -\sum_{i=1}^{B}\sum_{j=1}^{64}\sum_{k=1}^{13} {\phi}_{ijk} log(\hat{\phi}_{ijk})" border="0"/>
 
 
