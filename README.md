@@ -5,6 +5,7 @@ Our training set was relatively small with a lot of noise (angle of photos, back
 
 Our paper can be found [here](https://github.com/samryan18/chess-ray-vision/blob/master/Chess%20Ray%20Vision.pdf).
 
+
 ## Contributors
 * Samuel Ryan (samryan@seas)
 * Mukund Venkateswaran (mukundv@seas)
