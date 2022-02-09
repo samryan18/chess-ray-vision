@@ -3,7 +3,7 @@ Preprocessing Main
 
 '''
 
-from preprocessing.preprocessing import *
+from preprocessing import *
 from tqdm import tqdm
 import click
 import glob
@@ -47,7 +47,7 @@ def process_image(filename, dest_path, verbose, plot_original=False):
         plt.savefig(save_dest, bbox_inches=extent, pad_inches=0)
         
         if plot_original:
-            fig = plt.figure(frameon=False, figsize=(30,42))
+            fig = plt.figure(frameon=False, figsize=(30, 42))
             im_plot = imshow(img_orig, cmap='Greys_r', aspect='auto')
             plt.plot(board_outline_unwarp[:,0], board_outline_unwarp[:,1], 'ro-', markersize=5, linewidth=5)
 
@@ -70,8 +70,8 @@ def process_image(filename, dest_path, verbose, plot_original=False):
                                               f'warped_training_images')
 @click.option('--verbose', is_flag=True, help="Will print verbose messages.")
 def main_with_warped(glob_path, dest_path, verbose):
-    filenames = glob.glob(glob_path)
-    filenames = sorted(filenames)
+    filenames = glob.glob(glob_path)[::10]
+    #filenames = sorted(filenames)
     # print(f"Files: {filenames}")
   
     if (len(filenames) == 0):

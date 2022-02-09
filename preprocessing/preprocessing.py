@@ -81,7 +81,7 @@ def simplifyContours(contours):
     # Approximate contour and update in place
     # https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm
     contours[i] = cv2.approxPolyDP(contours[i],0.04*cv2.arcLength(contours[i],True),True)
-
+    
 def is_square(cnt, eps=3.0, xratio_thresh = 0.5):
   # 4x2 array, rows are each point, columns are x and y
   center = cnt.sum(axis=0)/4
@@ -205,7 +205,7 @@ def getContours(img, edges, iters=10):
 
     # https://docs.opencv.org/3.1.0/d4/d73/tutorial_py_contours_begin.html
     contours, hierarchy = cv2.findContours(edges_gradient, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
-    
+    contours = list(contours)
     simplifyContours(contours)  
     
     return np.array(contours), hierarchy[0]
@@ -350,6 +350,7 @@ def loadImage(filepath, resolution=1000.0):
     img_color = np.array(img_color)
 
     return img_grey, img_color
+
 
 def findChessboard(img, min_pts_needed=15, max_pts_needed=25):
     blur_img = cv2.blur(img, (3,3)) # Blur it
