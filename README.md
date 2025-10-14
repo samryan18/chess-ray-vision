@@ -1,7 +1,8 @@
-# CIS 520 Final Project
-The goal of this project was to detect chess pieces in photos of live chess games. We constructed our own hand-labeled dataset of [500 photos](https://github.com/samryan18/chess-dataset/tree/master/labeled_originals).
+# Chess-Ray Vision: Multi-Object Detection and Classification for Resolving Gamestate in Chessboard Photographs
 
-Our training set was relatively small with a lot of noise (angle of photos, background, etc.). Using Hough Transforms, we were able to find the corners of the boards and warp every image into a perfect square, which significantly reduced the noise. With these [simpler images](https://github.com/samryan18/chess-dataset/tree/master/labeled_preprocessed), we were able to use a relatively straightforward CNN to classify the piece on each of the 64 spaces in the board images with almost perfect accuracy.
+We aim to solve the problem of detecting and classifying the types, colors, and positions of multiple chess pieces from photographs of chessboards. We frame this as a multi-class, multi- label task. Our results can be interpreted in terms of three distinct outcomes. First, we take 500 aerial photographs to create a [new hand-crafted dataset](https://github.com/samryan18/chess-dataset/tree/master/labeled_originals) of chess game images labeled in accordance with Forsyth-Edwards notation. Next, we devise an image preprocessing procedure that standardizes photos taken from diﬀerent angles into consistent, cropped squares; this greatly reduces the complexity of the learning problem. Finally, and most importantly, we design several models, the best of which is a convolutional neural network that correctly classifies game states with over 99% accuracy.
+
+Our training set was relatively small with a lot of noise (angle of photos, background, etc.). Using Hough Transforms, we were able to find the corners of the boards and warp every image into a perfect square, which significantly reduced the noise. With these [simpler images](https://github.com/samryan18/chess-dataset/tree/master/labeled_preprocessed), we were able to use a relatively straightforward CNN to classify the piece on each of the 64 spaces in the board images with near perfect accuracy.
 
 Our paper can be found [here](https://github.com/samryan18/chess-ray-vision/blob/master/Chess%20Ray%20Vision.pdf).
 
