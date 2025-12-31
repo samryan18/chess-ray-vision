@@ -12,7 +12,7 @@ setup(
       python_requires='>=3.4',
       install_requires=[
         'Click==7.0',
-        'opencv-python==4.0.0.21',
+        'opencv-python==4.2.0.32',
         'tqdm'
       ],
       entry_points={
